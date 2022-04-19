@@ -1,27 +1,28 @@
 import json
-import unittest
-import urllib3
+import unittest #import TestCase
+#import urllib3
 import json
 
-from ibge import *
+from ibge_lib import *
 
 class TestIBGE(unittest.TestCase):
-    def should_return_all_aggregates():
+    def test_unfiltered_aggergate_query(self):
         query = IBGEQuery()
-        response = query.run()
-        assert
+        assert query.url() == 'https://servicodados.ibge.gov.br/api/v3/agregados'
 
-    def should_return_specific_aggregate():
-        pass
-    def should_return_specific_periods():
-        pass
-    def should_return_specific_variables():
-        pass
-    def should_return_specific_locations():
-        pass
-    def should_return_specific_classifications():
-        pass
-    #def should_return_all_aggregate_codes():
-    #    pass
-    #def should_return_aggregate_codes_by_research():
-    #    pass
+    def test_filtered_aggregate_query(self):
+        query = IBGEQuery()
+        query.filter_subject(70)
+        assert query.url() == 'https://servicodados.ibge.gov.br/api/v3/agregados?assunto=70'
+
+    def test_locations_per_aggregate_query(self):
+        query = IBGEQuery()
+        query.select_aggregate(1705)
+        query.filter_location_levels([7, 6])
+        assert query.url() == 'https://servicodados.ibge.gov.br/api/v3/agregados/1705/localidades/N7|N6'
+
+    def test_aggregate_metadata_query(self):
+        query = IBGEQuery()
+        query.select_aggregate(1705)
+        query.filter_metadata()
+        assert query.url() == 'https://servicodados.ibge.gov.br/api/v3/agregados/1705/metadados'
