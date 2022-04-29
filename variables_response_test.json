@@ -1,0 +1,105 @@
+[
+    {
+        "id": "V1",
+        "variavel": "Variável 1",
+        "unidade": "unidade 1",
+        "resultados": [
+            {
+                "classificacoes": [
+                    {
+                        "id": "CL1",
+                        "nome": "Classificação 1",
+                        "categoria": {
+                            "CTG1": "Categoria 1"
+                        }
+                    },
+                    {
+                        "id": "CL1",
+                        "nome": "Classificação 1",
+                        "categoria": {
+                            "CTG2": "Categoria 2"
+                        }
+                    }
+                ],
+                "series": [
+                    {
+                        "localidade": {
+                            "id": "LC1",
+                            "nivel": {
+                                "id": "N1",
+                                "nome": "Nível 1"
+                            },
+                            "nome": "Localidade 1"
+                        },
+                        "serie": [
+                            {"2010": 100.0},
+                            {"2011": 110.0}
+                        ]
+                    },
+                    {
+                        "localidade": {
+                            "id": "LC2",
+                            "nivel": {
+                                "id": "N1",
+                                "nome": "Nível 1"
+                            },
+                            "nome":"Localidade 2"
+                        },
+                        "serie": [
+                            {"2010": 90.0},
+                            {"2011": 80.0}
+                        ]
+                    }
+                ]
+            },
+            {
+                "classificacoes": [
+                    {
+                        "id": "CL2",
+                        "nome": "Classificação 2",
+                        "categoria": {
+                            "CTG3": "Categoria 3"
+                        }
+                    },
+                    {
+                        "id": "CL2",
+                        "nome": "Classificação 2",
+                        "categoria": {
+                            "CTG4": "Categoria 4"
+                        }
+                    }
+                ],
+                "series": [
+                    {
+                        "localidade": {
+                            "id": "LC3",
+                            "nivel": {
+                                "id": "N1",
+                                "nome": "Nível 1"
+                            },
+                            "nome": "Localidade 3"
+                        },
+                        "serie": [
+                            {"2010": 60.0},
+                            {"2011": 90.0}
+                        ]
+                    },
+                    {
+                        "localidade": {
+                            "id": "LC4",
+                            "nivel": {
+                                "id": "N1",
+                                "nome": "Nível 1"
+                            },
+                            "nome": "Localidade 4"
+                        },
+                        "serie": [
+                            {"2010": 70.0},
+                            {"2011": 120.0}
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

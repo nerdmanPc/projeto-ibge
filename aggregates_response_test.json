@@ -1,0 +1,30 @@
+[
+    {
+        "id": "P1",
+        "nome": "Pesquisa 1, Abacate",
+        "agregados": [
+            {
+                "id": 100,
+                "nome": "Agregado 1.1"
+            },
+            {
+                "id": 101,
+                "nome": "Agregado 1.2"
+            }
+        ]
+    },
+    {
+        "id": "P2",
+        "nome": "Pesquisa 2, Cenoura",
+        "agregados": [
+            {
+                "id": 200,
+                "nome": "Agregado 2.1 melao"
+            },
+            {
+                "id": 201,
+                "nome": "Agregado 2.2"
+            }
+        ]
+    }
+]
