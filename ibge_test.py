@@ -25,11 +25,11 @@ class TestIBGEQueries(unittest.TestCase):
         self.assertEqual(all_variables_url(aggregate=1705), 'https://servicodados.ibge.gov.br/api/v3/agregados/1705/variaveis/all?localidades=BR')
 
     def test_specific_variables_query(self):
-        query_url = specific_variables_url (aggregate=1712, locations=['BR'], variables=['214', '1982'], periods=['201701-201706', '201710'])
+        query_url = variables_url (aggregate=1712, locations=['BR'], variables=['214', '1982'], periods=['201701-201706', '201710'])
         self.assertEqual(query_url, 'https://servicodados.ibge.gov.br/api/v3/agregados/1712/periodos/201701-201706|201710/variaveis/214|1982?localidades=BR')
 
     def test_variables_query_with_classification(self):
-        query_url = specific_variables_url(aggregate=1712, locations=['BR'], variables=['214', '1982'], classifications=['226[4844,96608,96609]', '218[4780]'])
+        query_url = variables_url(aggregate=1712, locations=['BR'], variables=['214', '1982'], classifications=['226[4844,96608,96609]', '218[4780]'])
         self.assertEqual(query_url, 'https://servicodados.ibge.gov.br/api/v3/agregados/1712/periodos/-6/variaveis/214|1982?localidades=BR&classificacao=226[4844,96608,96609]|218[4780]')
 
 class TestIBGEResponses(unittest.TestCase):
