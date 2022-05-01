@@ -35,14 +35,14 @@ class TestIBGEQueries(unittest.TestCase):
 class TestIBGEResponses(unittest.TestCase):
     def setUp(self):
         with open('aggregates_response_test.json', 'rb') as file:
-            self._aggregates = json.load(file)
+            self._researches = json.load(file)
         with open('variables_response_test.json', 'rb') as file:
             self._variables = json.load(file)
     
     def test_filter_research(self):
-        researches_by_keyword = filter_researches(self._aggregates, 'cenoura')
+        researches_by_keyword = filter_researches(self._researches, 'cenoura')
         self.assertEqual(researches_by_keyword[0]['id'], 'P2')
 
     def test_filter_aggregate(self):
-        aggregates_by_keyword = filter_aggregates(self._aggregates, 'melao')
+        aggregates_by_keyword = filter_aggregates(self._researches[1], 'batata melao')
         self.assertEqual(aggregates_by_keyword[0]['id'], 200)

@@ -49,10 +49,16 @@ def filter_researches(reseaches, keyword: str):
     filter_it = filter(filter_fn, reseaches)
     return list(filter_it)
 
-def filter_aggregates(researches, keyword: str):
-    aggregates = []
-    for research in researches:
-        aggregates.extend(research['agregados'])
-    filter_fn = lambda x: x['nome'].casefold().rfind(keyword.casefold()) != -1
-    filter_it = filter(filter_fn, aggregates)
-    return list(filter_it)
+def has_keywords(text: str, kewwords: str):
+    text = text.casefold()
+    keywords = kewwords.casefold()
+    kw_list = keywords.split()
+    for kw in kw_list:
+        if text.find(kw) == -1:
+            return False
+    return True
+
+def filter_aggregates(research, keywords: str):
+    aggregates = research['agregados']
+    filter_fn = lambda aggr: has_keywords(aggr['nome'], keywords) 
+    return list(filter(filter_fn, aggregates))
