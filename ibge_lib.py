@@ -5,7 +5,7 @@ import json
 def query_ibge(query_url, request_fn):
     response = request_fn(query_url)
     if response.status != 200:
-        raise Exception(f'ERRO {response.status}, URL: {query_url}')
+        raise Exception(f'ERRO DE CONSULTA {response.status}, URL: {query_url}')
     return json.loads(response.data)
 
 AGGR_URL = 'https://servicodados.ibge.gov.br/api/v3/agregados'
@@ -34,7 +34,7 @@ def periods_url(aggregate):
 def all_variables_url(aggregate, locations='BR'):
     return AGGR_URL + f'/{aggregate}/variaveis/all?localidades={locations}'
 
-def variables_url(aggregate, variables, locations=['BR'], periods=['-6'], classifications=None):
+def variables_url(aggregate, variables, classifications=None, locations=['BR'], periods=['-6']):
     periods_str = '|'.join(periods)
     variables_str = '|'.join(variables)
     locations_str = '|'.join(locations)
