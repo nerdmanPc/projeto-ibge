@@ -1,6 +1,7 @@
 import json
+from unicodedata import name
 import unittest #import TestCase
-#import urllib3
+import urllib3
 import json
 
 from ibge_lib import *
@@ -32,6 +33,7 @@ class TestIBGEQueries(unittest.TestCase):
         query_url = variables_url(aggregate=1712, locations=['BR'], variables=['214', '1982'], classifications=['226[4844,96608,96609]', '218[4780]'])
         self.assertEqual(query_url, 'https://servicodados.ibge.gov.br/api/v3/agregados/1712/periodos/-6/variaveis/214|1982?localidades=BR&classificacao=226[4844,96608,96609]|218[4780]')
 
+
 class TestIBGEResponses(unittest.TestCase):
     def setUp(self):
         with open('aggregates_response_test.json', 'rb') as file:
@@ -46,3 +48,7 @@ class TestIBGEResponses(unittest.TestCase):
     def test_filter_aggregate(self):
         aggregates_by_keyword = filter_aggregates(self._researches[1], 'batata melao')
         self.assertEqual(aggregates_by_keyword[0]['id'], 200)
+
+    def test_var_ids_from_response(self):
+        var_ids = get_var_ids(self._variables)
+        self.assertEqual(var_ids, 'V1: Variável 1\nV2: Variável 2')

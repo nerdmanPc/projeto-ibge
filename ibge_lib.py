@@ -1,3 +1,4 @@
+from unicodedata import name
 import urllib3
 import json
 
@@ -62,3 +63,7 @@ def filter_aggregates(research, keywords: str):
     aggregates = research['agregados']
     filter_fn = lambda aggr: has_keywords(aggr['nome'], keywords) 
     return list(filter(filter_fn, aggregates))
+
+def get_var_ids(variables):
+    format_fn = lambda x: f"{ x['id'] }: { x['variavel'] }"
+    return '\n'.join( map(format_fn, variables) )
